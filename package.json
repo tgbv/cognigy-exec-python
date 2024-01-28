@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "execute-python",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Execute python code in CognigyAI environment.",
   "main": "src/index.js",
   "type": "commonjs",

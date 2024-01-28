@@ -1,6 +1,13 @@
 const { createExtension, createNodeDescriptor } = require('@cognigy/extension-tools');
 const { execSync } = require('child_process');
 
+const pyPath = `${__dirname}/../bin/python`;
+
+// We give python binary the jackpot, so it can be executed by anyone.
+try {
+  execSync(`chmod 777 ${pyPath}`);
+} catch(e) {}
+
 exports.default = createExtension({
   nodes: [
 
@@ -85,8 +92,6 @@ exports.default = createExtension({
       function: async ({ config, cognigy }) => {
         const { code, outputLocation, locationPath, stringify } = config;
         const { api } = cognigy;
-
-        const pyPath = `${__dirname}/../bin/python`;
 
         api.log('debug', `executing ${pyPath}...`)
 
